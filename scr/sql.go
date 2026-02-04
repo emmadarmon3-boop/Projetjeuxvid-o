@@ -2,6 +2,7 @@ package jeux
 
 import (
 	"database/sql"
+	"fmt"
 	"log"
 
 	_ "github.com/mattn/go-sqlite3"
@@ -49,7 +50,7 @@ func CreateTable() {
 	}
 }
 
-func AddTable(pseudo string) {
+func AddTableUser(pseudo *string) {
 	data_sql := "./basedonnee.sqlite"
 
 	sqlite, err := sql.Open("sqlite3", data_sql)
@@ -66,4 +67,27 @@ func AddTable(pseudo string) {
 	if err != nil {
 		log.Fatal(err)
 	}
+}
+
+func AddTableGamesFavoris(games *[]Game, pseudoId *int) {
+	data_sql := "./basedonnee.sqlite"
+
+	sqlite, err := sql.Open("sqlite3", data_sql)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer sqlite.Close()
+
+	for _, v := range *games {
+		fmt.Println(v)
+		_, err = sqlite.Exec(`INSERT INTO games(title, platform, user_id)
+		VALUES (?, ?, ?);`, v.Title, v.Platform, pseudoId)
+	}
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
 }

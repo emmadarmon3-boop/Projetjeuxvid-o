@@ -7,12 +7,13 @@ import (
 
 func Server() {
 	games := InitGames()
+	pseudo := InitUser()
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		HomeHandler(w, r)
 	})
 	http.HandleFunc("/connexion", func(w http.ResponseWriter, r *http.Request) {
-		ConnexionHandler(w, r, &games)
+		ConnexionHandler(w, r, &games, &pseudo)
 	})
 	http.HandleFunc("/affichage", func(w http.ResponseWriter, r *http.Request) {
 		AffichageHandler(w, r)
