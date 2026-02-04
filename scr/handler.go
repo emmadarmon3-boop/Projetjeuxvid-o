@@ -16,7 +16,8 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func ConnexionHandler(w http.ResponseWriter, r *http.Request, game *Game) {
-	Pseudo := r.FormValue("pseudo")
+	pseudo := r.FormValue("pseudo")
+	AddTable(pseudo)
 
 	resp, err := http.Get("https://www.freetogame.com/api/games")
 	if err != nil {
@@ -33,7 +34,7 @@ func ConnexionHandler(w http.ResponseWriter, r *http.Request, game *Game) {
 
 	cookie := &http.Cookie{
 		Name:  "cookie",
-		Value: Pseudo,
+		Value: pseudo,
 		Path:  "/",
 	}
 	http.SetCookie(w, cookie)

@@ -48,3 +48,22 @@ func CreateTable() {
 		log.Fatal(err)
 	}
 }
+
+func AddTable(pseudo string) {
+	data_sql := "./basedonnee.sqlite"
+
+	sqlite, err := sql.Open("sqlite3", data_sql)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer sqlite.Close()
+
+	_, err = sqlite.Exec(`INSERT INTO users(username) 
+		VALUES (?);`, pseudo)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+}
