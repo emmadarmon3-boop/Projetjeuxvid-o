@@ -6,12 +6,13 @@ import (
 )
 
 func Server() {
-	perso := InitVideo()
+	games := InitGames()
+
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		HomeHandler(w, r)
 	})
 	http.HandleFunc("/connexion", func(w http.ResponseWriter, r *http.Request) {
-		ConnexionHandler(w, r, &perso)
+		ConnexionHandler(w, r, &games)
 	})
 	http.HandleFunc("/affichage", func(w http.ResponseWriter, r *http.Request) {
 		AffichageHandler(w, r)
