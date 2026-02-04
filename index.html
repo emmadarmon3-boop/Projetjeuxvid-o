@@ -3,13 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+         <link rel="icon" href="https://img.freepik.com/premium-vector/icon-gamepad-play-arcade-video-game-gamer-custom-designcartoon-illustration_185390-205.jpg?w=2000" type="static/jpg">
+
+
     <title>Projet</title>
 </head>
 <body>
+    <nav>
+        <div class="nav-barre">
+        <h1>Dicojeux</h1>
+        <a href="/insciption" >Inscription</a>
+        <a href="/connexion" >connexion</a>
+         <a href="/désinscrire" >Désincription</a>
+        </div>
+    </nav>
+    <div class="contenair">
     <form action="/connexion" methode="post">
     <label>Pseudo</label>
      <input type="text" name="pseudo">
      <button type="submit">submit</button>
     </form>
+</div>
 </body>
 </html>

@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h2{
+    text-align: center;
+    margin:15px;
+    font-size: 25px;
+    border: 4px solid black;
+    border-radius:10px;
+   background: linear-gradient(to right, rgb(29, 25, 25), rgb(207, 126, 126));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.contenair{
+    margin:25px;
+    padding:25px;
+    text-align: center;
+}
+button{
+    border: 2px solid black;
+    border-radius: 10px;
+    padding:4px;
+}
+input{
+    border: 2px solid black;
+    padding: 2px;
+}
+.nav-barre{
+    border: 0px solid rgb(239, 236, 236);
+    border-radius: 15px;
+    display: flex;
+    justify-content: flex-start;
+    box-shadow: 15px 10px 5px grey;
+}
+.nav-barre h1{
+   margin-right: auto; 
+    font-size: 28px;
+    padding: 10px;
+}
